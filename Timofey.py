@@ -1,0 +1,35 @@
+"""
+
+---------------------------------------------- Link for the challenge: https://codeforces.com/problemset/problem/764/B -------------------------------------
+
+Young Timofey has a birthday today! He got kit of n cubes as a birthday present from his parents. Every cube has a number ai, which is written on it. 
+Timofey put all the cubes in a row and went to unpack other presents.
+
+In this time, Timofey's elder brother, Dima reordered the cubes using the following rule. Suppose the cubes are numbered from 1 to n in their order. 
+Dima performs several steps, on step i he reverses the segment of cubes from i-th to (n - i + 1)-th. He does this while i ≤ n - i + 1.
+
+After performing the operations Dima went away, being very proud of himself. When Timofey returned to his cubes, he understood that their order was changed. 
+Help Timofey as fast as you can and save the holiday — restore the initial order of the cubes using information of their current location.
+
+Input
+The first line contains single integer n (1 ≤ n ≤ 2·105) — the number of cubes.
+
+The second line contains n integers a1, a2, ..., an ( - 109 ≤ ai ≤ 109), where ai is the number written on the i-th cube after Dima has changed their order.
+
+Output
+Print n integers, separated by spaces — the numbers written on the cubes in their initial order.
+
+It can be shown that the answer is unique.
+
+Input:
+7
+4 3 7 6 9 1 2
+
+Output:
+2 3 9 6 7 1 4
+"""
+n = int(input())
+arr = list(map(int, input().split()))
+for i in range(0, n // 2, 2):
+    arr[i], arr[n - 1 - i] = arr[n - 1 - i], arr[i]
+print(*arr)
